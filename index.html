@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
   <title>Salary Calculator</title>
 </head>
 <body>
@@ -11,10 +12,49 @@
   </header>
   <main>
     <h2>Add Employee</h2>
+      <form id="firstNameForm">
+        <input id="firstNameInput" type="text" placeholder="First Name" data-testid="firstNameInput"></input>
+      </form>
+      <form id="lastNameForm">
+        <input id="lastNameInput" type="text" placeholder="Last Name" data-testid="lastNameInput"></input>
+      </form>
+      <form id="idForm">
+       <input id="idInput" type="number" placeholder="ID" data-testid="idInput"></input>
+     </form>
+      <form id="titleForm">
+        <input id="titleInput" type="text" placeholder="Title" data-testid="titleInput"></input>
+     </form>
+      <form id="annualSalaryForm">
+       <input id="annualSalaryInput" type="number" placeholder="Annual Salary" data-testid="annualSalaryInput"></input>
+     </form>
+      <button id="submitButton" onClick="submitButton(event)" type="submit">Submit</button>
     <h2>Employees</h2>
+    <div id="dataTable">
+      <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Annual Salary</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td id="firstNameData">*FIRST_NAME*</td>
+          <td id="lastNameData">*LAST_NAME*</td>
+          <td id="idData">*ID*</td>
+          <td id="titleData">*TITLE*</td>
+          <td id="annualSalaryData">*ANNUAL_SALARY*</td>
+          <td>
+            <button id="deleteButton" onClick="deleteRow(event)" type="button">Delete Row</button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </main>
   <footer>
     <p>Total Monthly</p>
+    <span id="monthlyTotal">0</span>
   </footer>
 </body>
 </html>
