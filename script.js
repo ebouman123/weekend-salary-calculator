@@ -42,6 +42,17 @@ function submitButton(event){
     // TODO: Figure out how to add a $ to the monthlyTotal
 }
 
+// Gives the delete buttons functionality to delete the specific row
+// function clearRow(){
+//     let table = document.getElementById('dataTable')
+//     let columnLength = document.getElementById('dataRow').children.length
+//     for (let i=0; i < columnLength; i++){
+//         let td = document.createElement('td').id = 
+//         document.set
+//     }
+//     console.log(columnLength)
+//     console.log(table)
+// }
 
 
 

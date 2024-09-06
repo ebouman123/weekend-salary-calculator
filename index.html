@@ -29,8 +29,8 @@
      </form>
       <button id="submitButton" onClick="submitButton(event)" type="submit">Submit</button>
     <h2>Employees</h2>
-    <div id="dataTable">
-      <table>
+    <div>
+      <table id="dataTable">
         <tr>
           <th>First Name</th>
           <th>Last Name</th>
@@ -39,14 +39,14 @@
           <th>Annual Salary</th>
           <th></th>
         </tr>
-        <tr>
+        <tr id="dataRow">
           <td id="firstNameData">*FIRST_NAME*</td>
           <td id="lastNameData">*LAST_NAME*</td>
           <td id="idData">*ID*</td>
           <td id="titleData">*TITLE*</td>
           <td id="annualSalaryData">*ANNUAL_SALARY*</td>
           <td>
-            <button id="deleteButton" onClick="deleteRow(event)" type="button">Delete Row</button>
+            <button id="deleteButton" onClick="clearRow()" type="button">Delete Row</button>
           </td>
         </tr>
       </table>

@@ -1,3 +1,13 @@
 table, th, td{
     border: 2px black solid;
 }
+
+form {
+    padding: 5px;
+    margin: 2px;
+    display: inline;
+}
+
+#submitButton {
+    margin: 2px;
+}
