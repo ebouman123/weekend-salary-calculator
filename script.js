@@ -31,26 +31,16 @@ function submitButton(event){
     // Adds annualSalary and resets after submission
     let annualSalaryInput = document.getElementById('annualSalaryInput')
     let annualSalaryData = document.getElementById('annualSalaryData')
-    annualSalaryData.textContent = annualSalaryInput.value
-    // annualSalaryData.textContent = currencyConverter.format(annualSalaryInput.value)
+    let numConversion = parseInt(annualSalaryInput.value, 10)
+    annualSalaryData.textContent = '$' + numConversion.toLocaleString();
     document.getElementById('annualSalaryForm').reset()
-    // Add annualSalary to monthlyTotal
+    // Adds annualSalary to monthlyTotal and sums
     let monthlyTotal = document.getElementById('monthlyTotal')
-    monthlyTotal.textContent += annualSalaryInput.value
-    // Add annualSalary to monthlyTotal
-    // let monthlyTotal = document.getElementById('monthlyTotal')
-    // let newMonthlyTotal = monthlyTotal.textContent + annualSalaryData.textContent
-    // console.log(newMonthlyTotal)
-    // Clears the inputs after the form is submitted
+    let monthlyTotalValue = parseInt(monthlyTotal.innerHTML, 10)
+    monthlyTotal.innerHTML = (numConversion + monthlyTotalValue).toLocaleString()
 
+    // TODO: Figure out how to add a $ to the monthlyTotal
 }
-
-
-// Add functionality to update the monthly total
-
-
-
-// Add functionality to clear the inputs from the form after submitted
 
 
 
