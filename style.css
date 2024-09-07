@@ -1,13 +1,117 @@
-table, th, td{
-    border: 2px black solid;
+h1{
+    background-color:rgb(49, 173, 103);
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    height: 80px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: 0;
+    background-color: rgb(200, 245, 220);
+}
+
+label {
+    display: inline;
+    margin: 0.5rem 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 form {
-    padding: 5px;
-    margin: 2px;
-    display: inline;
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+    justify-content: left;
+ }
+
+ #submitButton {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
+    width: 100px;
+    height: 30px;
+ }
+
+input, textarea {
+    margin: 3px 0 3px 8px;
+    width: 40%;
+    min-height: 2em;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#outerContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#addEmployeeBox {
+    border: 3px black solid;
+    flex-grow: 0.5;
+}
+
+#tableBox {
+    border: 3px black solid;
+    border-left: 0px;
+    flex-grow: 1;
+}
+
+
+table{
+    table-layout: fixed;
+    min-width: 25%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    text-align: center;
+    margin: auto;
+}
+
+thead th:nth-child(1) {
+    width: 20%;
+  }
+
+thead th:nth-child(2) {
+    width: 20%;
+}  
+
+thead th:nth-child(3) {
+    width: 10%;
+}
+
+thead th:nth-child(4) {
+    width: 20%;
+}
+
+thead th:nth-child(5) {
+    width: 15%;
+}
+
+thead th:nth-child(6) {
+    width: 15%;
+}
+
+th, td{
+    padding:15px;
+    border: 1px black solid;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
 }
 
 .over-budget{
     color: crimson;
+    font-size: x-large;
 }
+

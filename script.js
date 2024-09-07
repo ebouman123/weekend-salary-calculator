@@ -2,6 +2,9 @@ function submitButton(event){
 // Prevent default form behavior
 event.preventDefault()
 
+// Requires all fields to have a value before button will submit
+if (firstNameInput.value.length > 0 && lastNameInput.value.length > 0 && idInput.value.length > 0 && titleInput.value.length > 0 && annualSalaryInput.value.length > 0){
+
 // Reference the current table
 let table = document.getElementById("dataTable");
 
@@ -58,12 +61,19 @@ monthlyTotal()
 overBudget()
 
 }
+else{
+    window.alert('Please fill out all fields :)')
+}
+}
 
 // Allows the delete button to remove that specific row
 function deleteBtn(event){
     let targetButton = event.target
     let parentRow = targetButton.parentElement.parentElement
     parentRow.remove()
+
+    // Minuses the annualSalary from the selected row from the monthlyTotal
+
 }
 
 // Loops through the tds to sum up the monthly total
@@ -76,7 +86,9 @@ function monthlyTotal(){
 
     // TODO: Figure out how to add commas and $
     for (let i=0; i<document.getElementsByTagName('tr').length - 1; i++){
+        salaries[i].innerHTML = salaries[i].innerHTML.replace('$', '');
         monthlyTotal.innerHTML = (parseInt(monthlyTotal.innerHTML, 10) + (parseInt(salaries[i].innerHTML, 10)/12)).toFixed(2)
+
     }
 }
 
@@ -84,6 +96,7 @@ function monthlyTotal(){
 function overBudget(){
     let footer = document.getElementById('budget')
     let monthlyTotal = document.getElementById('monthlyTotal')
+    // let annualSalaryData = document.getElementsByClassName('salary')
 
     // Checks if budget is over 20,000, adds class if it is
     if (monthlyTotal.innerHTML > 20000){
@@ -96,6 +109,8 @@ function overBudget(){
     // Formatting for $ and commas after everything is calculated
     const formatter = new Intl.NumberFormat('en-US')
     monthlyTotal.innerHTML = `$` + formatter.format(monthlyTotal.innerHTML)
+    // annualSalaryData.innerHTML = `$` + formatter.format(annualSalaryData.innerHTML)
+
 }
 
 // function testButton(){
