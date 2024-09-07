@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
   <title>Salary Calculator</title>
 </head>
 <body>
@@ -13,44 +13,46 @@
   <main>
     <h2>Add Employee</h2>
       <form id="firstNameForm">
-        <input id="firstNameInput" type="text" placeholder="First Name" data-testid="firstNameInput"></input>
+        <input id="firstNameInput" type="text" placeholder="First Name" data-testid="firstNameInput" required></input>
       </form>
       <form id="lastNameForm">
-        <input id="lastNameInput" type="text" placeholder="Last Name" data-testid="lastNameInput"></input>
+        <input id="lastNameInput" type="text" placeholder="Last Name" data-testid="lastNameInput" required></input>
       </form>
       <form id="idForm">
-       <input id="idInput" type="number" placeholder="ID" data-testid="idInput"></input>
+       <input id="idInput" type="number" placeholder="ID" data-testid="idInput" required></input>
      </form>
       <form id="titleForm">
-        <input id="titleInput" type="text" placeholder="Title" data-testid="titleInput"></input>
+        <input id="titleInput" type="text" placeholder="Title" data-testid="titleInput" required></input>
      </form>
       <form id="annualSalaryForm">
-       <input id="annualSalaryInput" type="number" placeholder="Annual Salary" data-testid="annualSalaryInput"></input>
+       <input id="annualSalaryInput" type="number" placeholder="Annual Salary" data-testid="annualSalaryInput" required></input>
      </form>
-      <button id="submitButton" onClick="submitButton(event)" type="submit">Submit</button>
+      <button id="submitButton" type="submit" data-testid="submitButton" onClick="submitButton(event)">Submit</button>
     <h2>Employees</h2>
-    <div>
       <table id="dataTable">
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Annual Salary</th>
-          <th></th>
-        </tr>
-        <tr id="dataRow">
-          <td id="firstNameData">*FIRST_NAME*</td>
-          <td id="lastNameData">*LAST_NAME*</td>
-          <td id="idData">*ID*</td>
-          <td id="titleData">*TITLE*</td>
-          <td id="annualSalaryData">*ANNUAL_SALARY*</td>
-          <td>
-            <button id="deleteButton" onClick="clearRow()" type="button">Delete Row</button>
-          </td>
-        </tr>
+        <thead>
+          <tr>
+           <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
+            <th></th>
+          </tr>
+        </thead>
+        <!-- <tbody id="rowBody">
+          <tr id="dataRow">
+            <td id="firstNameData">*FIRST_NAME*</td>
+            <td id="lastNameData">*LAST_NAME*</td>
+            <td id="idData">*ID*</td>
+            <td id="titleData">*TITLE*</td>
+            <td id="annualSalaryData">*ANNUAL_SALARY*</td>
+            <td>
+              <button id="deleteButton" onClick="clearRow()" type="button">Delete Row</button>
+            </td>
+          </tr>
+        </tbody> -->
       </table>
-    </div>
   </main>
   <footer>
     <p>Total Monthly</p>
