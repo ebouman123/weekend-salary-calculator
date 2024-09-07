@@ -55,6 +55,8 @@ document.getElementById('annualSalaryForm').reset()
 
 monthlyTotal()
 
+overBudget()
+
 }
 
 // Allows the delete button to remove that specific row
@@ -79,9 +81,16 @@ function monthlyTotal(){
     }
 }
 
-// TODO: Complete overBudget() function
+// Adds a class and styling to footer when the monthlyTotal > 20,000
 function overBudget(){
-
+    let footer = document.getElementById('budget')
+    let monthlyTotal = document.getElementById('monthlyTotal')
+    if (monthlyTotal.innerHTML > 20000){
+        footer.setAttribute('class', 'over-budget')
+    }
+    else{
+        footer.removeAttribute('over-budget')
+    }
 }
 
 
