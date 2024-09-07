@@ -20,11 +20,11 @@ let cell5 = newRow.insertCell(5);
 cell4.setAttribute('class', 'salary')
 
 // Create a delete button to be added to the last cell, also calls the deleteBtn() function
-let deleteBtn = document.createElement('input')
-deleteBtn.type = 'button'
+let deleteBtn = document.createElement('button')
+deleteBtn.type = 'submit'
 deleteBtn.setAttribute('id', 'deleteBtn')
 deleteBtn.setAttribute('onClick', 'deleteBtn(event)')
-deleteBtn.value = 'Delete'
+deleteBtn.innerHTML = 'Delete'
 cell5.appendChild(deleteBtn)
 
 // Puts firstNameInput into the new cell[0] and resets the form
@@ -77,7 +77,6 @@ function monthlyTotal(){
     // TODO: Figure out how to add commas and $
     for (let i=0; i<document.getElementsByTagName('tr').length - 1; i++){
         monthlyTotal.innerHTML = (parseInt(monthlyTotal.innerHTML, 10) + (parseInt(salaries[i].innerHTML, 10)/12)).toFixed(2)
-        // console.log(salaries[i].innerHTML)
     }
 }
 
@@ -85,136 +84,23 @@ function monthlyTotal(){
 function overBudget(){
     let footer = document.getElementById('budget')
     let monthlyTotal = document.getElementById('monthlyTotal')
+
+    // Checks if budget is over 20,000, adds class if it is
     if (monthlyTotal.innerHTML > 20000){
         footer.setAttribute('class', 'over-budget')
     }
     else{
         footer.removeAttribute('over-budget')
     }
+
+    // Formatting for $ and commas after everything is calculated
+    const formatter = new Intl.NumberFormat('en-US')
+    monthlyTotal.innerHTML = `$` + formatter.format(monthlyTotal.innerHTML)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Currency converter
-// // const currencyConverter = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'})
-
-// // console.log(currencyConverter.format(5000))
-
-
-// // Adds the data from the form to each respective point in the table. 
-// // Also adds the salary information to the monthly total. Clears inputs after the form is submitted.
-// function submitButton(event){
-//     event.preventDefault()
-//     // Adds firstName and resets after submission
-//     let firstNameInput = document.getElementById('firstNameInput')
-//     let firstNameData = document.getElementById('firstNameData')
-//     // firstNameData.textContent = firstNameInput.value
-//     firstNameData.innerHTML = `${firstNameInput.value}`
-//     // console.log(firstNameData.innerHTML)
-//     document.getElementById('firstNameForm').reset()
-//     // Adds lastName and resets after submission
-//     let lastNameInput = document.getElementById('lastNameInput')
-//     let lastNameData = document.getElementById('lastNameData')
-//     // lastNameData.textContent = lastNameInput.value
-//     lastNameData.innerHTML = `${lastNameInput.value}`
-//     document.getElementById('lastNameForm').reset()
-//     // Adds ID and resets after submission
-//     let idInput = document.getElementById('idInput')
-//     let idData = document.getElementById('idData')
-//     // idData.textContent = idInput.value
-//     idData.innerHTML = `${idInput.value}`
-//     document.getElementById('idForm').reset()
-//     // Adds title and resets after submission
-//     let titleInput = document.getElementById('titleInput')
-//     let titleData = document.getElementById('titleData')
-//     // titleData.textContent = titleInput.value
-//     titleData.innerHTML = `${titleInput.value}`
-//     document.getElementById('titleForm').reset()
-//     // Adds annualSalary and resets after submission
-//     let annualSalaryInput = document.getElementById('annualSalaryInput')
-//     let annualSalaryData = document.getElementById('annualSalaryData')
-//     let numConversion = parseInt(annualSalaryInput.value, 10)
-//     // annualSalaryData.textContent = '$' + numConversion.toLocaleString();
-//     annualSalaryData.innerHTML = '$' + `${numConversion.toLocaleString()}`;
-//     updateTotal();
-
-//     document.getElementById('annualSalaryForm').reset()
-    
-
-//     // console.log('annualSalaryInput:', annualSalaryInput.innerHTML)
-//     // console.log('annualSalaryData:', annualSalaryData)
-//     // console.log('annualSalaryInput:', numConversion)
-//     // console.log('monthlyTotal:', monthlyTotal)
-//     // console.log('monthlyTotal.innerHTML:', monthlyTotal.innerHTML)
-//     // console.log('monthlyTotalValue:', monthlyTotalValue)
-//     // console.log('monthlyTotal.innerHTML + monthlyTotalValue:', monthlyTotal.innerHTML)
-
-//     // TODO: Figure out how to add a $ to the monthlyTotal
-
-// addNewRow()
-
+// function testButton(){
+//     const table = document.querySelector('table')
+//     const tableButtons = table.querySelectorAll('button')
+//     const secondRowsButton = tableButtons[1]
+//     console.log(tableButtons[1])
 // }
-
-
-// function updateTotal(){
-// // Adds annualSalary to monthlyTotal and sums
-// let monthlyTotal = document.getElementById('monthlyTotal')
-// let monthlyTotalValue = parseFloat(monthlyTotal.innerHTML)
-// let numConversion = parseInt(annualSalaryInput.value, 10)
-// monthlyTotal.innerHTML = (numConversion + monthlyTotalValue).toLocaleString()
-// }
-
-// // Create function to add rows/data
-// function addNewRow(){
-//     let rowParent = document.getElementsByClassName('dataRow')
-//     console.log('rowparent:', rowParent.parentElement.parentElement)
-//     // console.log(table.innerHTML[0])
-// }
-
-
-// // addNewRow()
-
-// // Gives the delete buttons functionality to delete the specific row
-// // function clearRow(){
-// //     let table = document.getElementById('dataTable')
-// //     let columnLength = document.getElementById('dataRow').children.length
-// //     for (let i=0; i < columnLength; i++){
-// //         let td = document.createElement('td').id = 
-// //         document.set
-// //     }
-// //     console.log(columnLength)
-// //     console.log(table)
-// // }
-
